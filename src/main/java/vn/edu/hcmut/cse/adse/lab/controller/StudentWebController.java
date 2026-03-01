@@ -19,11 +19,16 @@ public class StudentWebController {
     // 1. Trang Danh Sách (List View)
     @GetMapping
     public String getAllStudents(@RequestParam(required = false) String keyword, Model model) {
-        List<Student> students = (keyword != null && !keyword.isEmpty()) 
-                ? service.searchByName(keyword) 
+        List<Student> students = (keyword != null && !keyword.isEmpty())
+                ? service.searchByName(keyword)
                 : service.getAll();
         model.addAttribute("dsSinhVien", students);
         return "students";
+    }
+
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/students";
     }
 
     // 2. Trang Chi Tiết (Detail View)
