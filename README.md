@@ -43,9 +43,9 @@
 4. Chạy Ứng Dụng
 Mở Terminal/Command Prompt tại thư mục dự án và chạy lệnh sau để Maven tự động tải thư viện và khởi động Spring Boot:
 
-Trên Windows: mvnw spring-boot:run
+Trên Windows: `mvnw spring-boot:run`
 
-Trên macOS/Linux: ./mvnw spring-boot:run
+Trên macOS/Linux: `./mvnw spring-boot:run`
 
 Sau khi ứng dụng báo Started, mở trình duyệt và truy cập: http://localhost:8080/students 
 
@@ -120,7 +120,7 @@ Vì vậy, trong thực tế cần:
 ---
 
 ### Câu 4: Cấu hình Hibernate
-**Tại sao mỗi lần tắt ứng dụng và chạy lại, dữ liệu cũ trong Database lại bị mất hết?
+**Tại sao mỗi lần tắt ứng dụng và chạy lại, dữ liệu cũ trong Database lại bị mất hết?**
 
 **Trả lời:**  
 - Hiện tượng dữ liệu cũ trong Database lại bị mất hết xảy ra là do một dòng cấu hình của Hibernate trong file application.properties (hoặc application.yml). Cụ thể là thuộc tính:
