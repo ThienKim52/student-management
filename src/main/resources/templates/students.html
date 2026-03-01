@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Sinh Viên</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .action-links a { margin-right: 10px; text-decoration: none; color: blue; }
+        .btn { padding: 8px 12px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Danh Sách Sinh Viên</h1>
+    
+    <form action="/students" method="GET" style="margin-bottom: 20px; display: inline-block;">
+        <input type="text" name="keyword" placeholder="Nhập tên..." />
+        <button type="submit">Tìm</button>
+    </form>
+    
+    <a href="/students/new" class="btn" style="float: right;">+ Thêm Mới</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Họ và Tên</th><th>Email</th><th>Tuổi</th><th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${dsSinhVien}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.email}"></td>
+                <td th:text="${student.age}"></td>
+                <td class="action-links">
+                    <a th:href="@{/students/{id}(id=${student.id})}">Xem Chi Tiết</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

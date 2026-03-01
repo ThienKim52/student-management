@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi Tiết Sinh Viên</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .card { border: 1px solid #ddd; padding: 20px; max-width: 400px; border-radius: 5px; }
+        .btn-edit { background-color: #ffc107; padding: 8px; text-decoration: none; color: black; border-radius: 4px; }
+        .btn-delete { background-color: #dc3545; padding: 8px; text-decoration: none; color: white; border-radius: 4px; }
+        .btn-back { background-color: #6c757d; padding: 8px; text-decoration: none; color: white; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Chi Tiết Sinh Viên</h1>
+    <div class="card">
+        <p><strong>ID:</strong> <span th:text="${student.id}"></span></p>
+        <p><strong>Họ và Tên:</strong> <span th:text="${student.name}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${student.email}"></span></p>
+        <p><strong>Tuổi:</strong> <span th:text="${student.age}"></span></p>
+        
+        <div style="margin-top: 20px;">
+            <a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn-edit">Chỉnh Sửa</a>
+            <a th:href="@{/students/delete/{id}(id=${student.id})}" class="btn-delete" 
+               onclick="return confirm('Bạn có chắc chắn muốn xóa sinh viên này không?');">Xóa</a>
+        </div>
+    </div>
+    <br>
+    <a href="/students" class="btn-back">Quay Lại</a>
+</body>
+</html>
